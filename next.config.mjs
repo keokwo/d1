@@ -34,10 +34,15 @@ const defaultConfig = resolveConfig(tailwindDefaultConfig)
 
 const fallbackLayouts = {
   'src/pages/docs/**/*': ['@/layouts/DocumentationLayout', 'DocumentationLayout'],
+  'src/pages/learn/umum/parsinta/belajar-html/*': [
+    '@/layouts/learn/parsinta/BelajarHtml',
+    'BelajarHtml',
+  ],
 }
 
 const fallbackDefaultExports = {
   'src/pages/{docs,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
+  'src/pages/{learn,components}/**/*': ['@/layouts/ContentsLayout', 'ContentsLayout'],
   'src/pages/blog/**/*': ['@/layouts/BlogPostLayout', 'BlogPostLayout'],
   'src/pages/careers/**/*': ['@/layouts/JobPostingLayout', 'JobPostingLayout'],
   'src/pages/showcase/**/*': ['@/layouts/ShowcaseLayout', 'ShowcaseLayout'],

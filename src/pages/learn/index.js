@@ -2,7 +2,7 @@ import { Footer } from '@/components/Footer'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function Docs() {
+export default function Learn() {
   return (
     <>
       <main className="relative mt-16 sm:mt-20">
@@ -82,7 +82,7 @@ export default function Docs() {
   )
 }
 
-Docs.layoutProps = {
+Learn.layoutProps = {
   meta: {
     title: 'Example Showcase',
     description:
