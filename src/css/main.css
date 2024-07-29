@@ -1,0 +1,42 @@
+@import 'base.css';
+
+/*! purgecss start ignore */
+@import 'docsearch.css';
+@import 'prism.css';
+@import 'bar-of-progress.css';
+/*! purgecss end ignore */
+
+@import 'tailwindcss/components';
+@import 'utilities.css';
+
+::-webkit-scrollbar {
+  @apply w-1;
+}
+
+::-webkit-scrollbar-track {
+  @apply rounded-[3px] bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-[3px] border-2 border-neutral-300 bg-slate-700 dark:bg-slate-200;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-blue-500 dark:bg-blue-500;
+}
+
+::-webkit-scrollbar:horizontal {
+  @apply h-1;
+}
+
+::-webkit-scrollbar-track:horizontal {
+  @apply rounded-[3px] bg-transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+  @apply rounded-[3px] border-2 border-neutral-300 bg-slate-700 dark:bg-slate-200;
+}
+
+::-webkit-scrollbar-thumb:horizontal:hover {
+  @apply bg-blue-500 dark:bg-blue-500;
+}
