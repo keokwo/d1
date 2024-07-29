@@ -94,22 +94,7 @@ export function BlogPostLayout({ children, meta }) {
           </main>
           <footer className="mt-16">
             <div className="relative pb-28">
-              <div className="absolute w-full overflow-hidden dark:w-screen">
-                <img
-                  src={require('@/img/beams/blog-post-form@80.jpg').default.src}
-                  alt=""
-                  className="absolute top-px sm:left-auto sm:right-0 left-1/4 dark:hidden max-w-none"
-                  width="476"
-                  decoding="async"
-                />
-                <img
-                  src={require('@/img/beams/blog-post-form-dark@90.jpg').default.src}
-                  alt=""
-                  className="absolute hidden top-px -left-1/4 sm:left-0 dark:block max-w-none"
-                  width="1429"
-                  decoding="async"
-                />
-              </div>
+              <div className="absolute w-full overflow-hidden dark:w-screen"></div>
             </div>
           </footer>
         </div>

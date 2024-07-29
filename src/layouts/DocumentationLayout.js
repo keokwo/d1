@@ -1,14 +1,14 @@
 import { Title } from '@/components/Meta'
 import { SidebarLayout } from '@/layouts/SidebarLayout'
-import { belajarHtml } from '@/navs/learn/parsinta/belajar-html'
+import { documentationNav } from '@/navs/documentation'
 
-export function BelajarHtml(props) {
+export function DocumentationLayout(props) {
   return (
     <>
       <Title>{props.layoutProps.meta.metaTitle || props.layoutProps.meta.title}</Title>
-      <SidebarLayout nav={belajarHtml} {...props} />
+      <SidebarLayout nav={documentationNav} {...props} />
     </>
   )
 }
 
-BelajarHtml.nav = belajarHtml
+DocumentationLayout.nav = documentationNav

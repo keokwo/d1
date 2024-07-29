@@ -16,6 +16,6 @@ export const documentationNav = {
     // pages['tailwind-cli'],
     // { title: 'Play CDN', href: '#' },
   ],
-  Customization: [pages['configuration'], pages['content-configuration']],
+  // Customization: [pages['configuration'], pages['content-configuration']],
   'Transitions & Animation': [pages['transition-property'], pages['transition-duration']],
 }

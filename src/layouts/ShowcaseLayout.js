@@ -1,16 +1,16 @@
-import { MDXProvider } from '@mdx-js/react'
-import { showcase } from '@/showcase'
-import Link from 'next/link'
-import Image from 'next/image'
-import clsx from 'clsx'
-import { Children, cloneElement } from 'react'
 import { Footer } from '@/components/Footer'
-import { Description, Title, OgDescription, OgTitle } from '@/components/Meta'
+import { Description, OgDescription, OgTitle, Title } from '@/components/Meta'
+import { showcase } from '@/showcase'
+import { MDXProvider } from '@mdx-js/react'
+import clsx from 'clsx'
+import Image from 'next/image'
+import Link from 'next/link'
+import { Children, cloneElement } from 'react'
 
 function Caption({ children }) {
   return (
-    <figcaption className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-0 2xl:max-w-8xl">
-      <div className="-ml-px pt-4 pl-4 sm:pt-6 sm:pl-6 border-l border-slate-200 text-sm leading-6 text-slate-600 dark:border-slate-700 dark:text-slate-400">
+    <figcaption className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 2xl:px-0 2xl:max-w-8xl">
+      <div className="pt-4 pl-4 -ml-px text-sm leading-6 border-l sm:pt-6 sm:pl-6 border-slate-200 text-slate-600 dark:border-slate-700 dark:text-slate-400">
         {children}
       </div>
     </figcaption>
@@ -20,7 +20,7 @@ function Caption({ children }) {
 function ShowcaseImage({ src, darkSrc, caption, isMobile = false, margin = true, ...props }) {
   if (isMobile) {
     return (
-      <div className="bg-slate-200 rounded-lg ring-1 ring-slate-900/5 overflow-hidden shadow-md shadow-slate-700/5">
+      <div className="overflow-hidden rounded-lg shadow-md bg-slate-200 ring-1 ring-slate-900/5 shadow-slate-700/5">
         <Image
           src={src}
           alt=""
@@ -37,11 +37,11 @@ function ShowcaseImage({ src, darkSrc, caption, isMobile = false, margin = true,
 
   return (
     <figure className={clsx('relative z-20', margin && 'my-20 sm:my-32')}>
-      <div className="relative bg-slate-100 overflow-hidden dark:bg-slate-800">
-        <div className="absolute inset-x-0 top-0 bg-slate-900/5 h-px dark:bg-slate-100/5" />
-        <div className="absolute inset-x-0 bottom-0 bg-slate-900/5 h-px dark:bg-slate-100/5" />
-        <div className="max-w-8xl mx-auto">
-          <div className="ring-1 ring-slate-900/5 shadow-md shadow-slate-900/10 bg-slate-200">
+      <div className="relative overflow-hidden bg-slate-100 dark:bg-slate-800">
+        <div className="absolute inset-x-0 top-0 h-px bg-slate-900/5 dark:bg-slate-100/5" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-slate-900/5 dark:bg-slate-100/5" />
+        <div className="mx-auto max-w-8xl">
+          <div className="shadow-md ring-1 ring-slate-900/5 shadow-slate-900/10 bg-slate-200">
             <Image
               src={src}
               alt=""
@@ -73,9 +73,9 @@ function ShowcaseMobileImages({ children, caption }) {
 
   return (
     <figure className="my-20 md:my-32">
-      <div className="relative bg-slate-100 dark:bg-slate-800 py-20 sm:py-32 sm:overflow-x-auto sm:flex">
-        <div className="absolute inset-x-0 top-0 bg-slate-900/5 h-px dark:bg-slate-100/5" />
-        <div className="absolute inset-x-0 bottom-0 bg-slate-900/5 h-px dark:bg-slate-100/5" />
+      <div className="relative py-20 bg-slate-100 dark:bg-slate-800 sm:py-32 sm:overflow-x-auto sm:flex">
+        <div className="absolute inset-x-0 top-0 h-px bg-slate-900/5 dark:bg-slate-100/5" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-slate-900/5 dark:bg-slate-100/5" />
         <div
           className={clsx(
             'flex flex-col sm:flex-row items-center sm:flex-none min-w-full sm:px-6 lg:px-8 gap-y-16',
@@ -102,14 +102,14 @@ function ShowcaseMobileImages({ children, caption }) {
 
 function ShowcaseIntro({ eyebrow, title, children }) {
   return (
-    <div className="max-w-8xl mx-auto pt-14 sm:pt-20 md:pt-32 xl:pt-36 mb-20 md:mb-32 px-4 sm:px-6 lg:px-8">
-      <p className="text-sm leading-6 font-semibold text-sky-500">{eyebrow}</p>
+    <div className="px-4 mx-auto mb-20 max-w-8xl pt-14 sm:pt-20 md:pt-32 xl:pt-36 md:mb-32 sm:px-6 lg:px-8">
+      <p className="text-sm font-semibold leading-6 text-sky-500">{eyebrow}</p>
       {title && (
-        <h2 className="mt-4 max-w-5xl text-slate-900 text-3xl sm:text-6xl tracking-tight font-bold dark:text-white">
+        <h2 className="max-w-5xl mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-6xl dark:text-white">
           {title}
         </h2>
       )}
-      <div className="mt-4 max-w-3xl prose prose-slate dark:prose-dark">{children}</div>
+      <div className="max-w-3xl mt-4 prose prose-slate dark:prose-dark">{children}</div>
     </div>
   )
 }
@@ -129,17 +129,17 @@ export function ShowcaseLayout({ children, slug, meta }) {
       </Description>
       {meta.ogDescription && <OgDescription>{meta.ogDescription}</OgDescription>}
       <article>
-        <header className="bg-white/95 z-40 supports-backdrop-blur:bg-white/60 backdrop-blur py-4 relative shadow-md shadow-slate-700/5 dark:bg-transparent">
+        <header className="relative z-40 py-4 shadow-md bg-white/95 supports-backdrop-blur:bg-white/60 backdrop-blur shadow-slate-700/5 dark:bg-transparent">
           <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 grid items-center grid-cols-[1fr,auto,1fr] gap-6">
             <div className="text-center">
               <p className="text-[0.8125rem] leading-6 font-semibold text-sky-500">
                 <Link href="/showcase">Showcase</Link>
               </p>
-              <h1 className="mt-1 text-xl leading-8 tracking-tight font-semibold text-slate-900 dark:text-white">
+              <h1 className="mt-1 text-xl font-semibold leading-8 tracking-tight text-slate-900 dark:text-white">
                 {meta.title}
               </h1>
             </div>
-            <div className="order-first flex">
+            <div className="flex order-first">
               {previousSite && (
                 <Link
                   href={`/showcase/${previousSite.slug}`}
@@ -150,12 +150,12 @@ export function ShowcaseLayout({ children, slug, meta }) {
                     <span aria-hidden="true">&larr; </span>
                     Previous
                   </div>
-                  <div className="hidden md:block mt-2 text-sm leading-6 font-semibold text-slate-900 dark:text-white">
+                  <div className="hidden mt-2 text-sm font-semibold leading-6 md:block text-slate-900 dark:text-white">
                     {previousSite.name}
                   </div>
                   <div className="absolute -inset-1 md:hidden" />
                   <svg
-                    className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
+                    className="w-6 h-6 md:hidden stroke-slate-900 dark:stroke-white"
                     fill="none"
                     aria-hidden="true"
                   >
@@ -169,7 +169,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
                 </Link>
               )}
             </div>
-            <div className="flex text-right justify-end">
+            <div className="flex justify-end text-right">
               {nextSite && (
                 <Link
                   href={`/showcase/${nextSite.slug}`}
@@ -180,12 +180,12 @@ export function ShowcaseLayout({ children, slug, meta }) {
                     Next
                     <span aria-hidden="true"> &rarr;</span>
                   </div>
-                  <div className="hidden md:block mt-2 text-sm leading-6 font-semibold text-slate-900 dark:text-white">
+                  <div className="hidden mt-2 text-sm font-semibold leading-6 md:block text-slate-900 dark:text-white">
                     {nextSite.name}
                   </div>
                   <div className="absolute -inset-1 md:hidden" />
                   <svg
-                    className="md:hidden w-6 h-6 stroke-slate-900 dark:stroke-white"
+                    className="w-6 h-6 md:hidden stroke-slate-900 dark:stroke-white"
                     fill="none"
                     aria-hidden="true"
                   >
@@ -211,20 +211,8 @@ export function ShowcaseLayout({ children, slug, meta }) {
           />
         )}
         <div className="overflow-hidden">
-          <div className="relative max-w-8xl py-6 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <Image
-              src={require('@/img/showcase/beams-2@75.jpg')}
-              alt=""
-              className="absolute top-[-20rem] sm:top-[-25rem] left-1/2 ml-[-35rem] max-w-none w-[119.4375rem] dark:hidden pointer-events-none"
-              unoptimized
-            />
-            <Image
-              src={require('@/img/showcase/beams-2-dark@75.jpg')}
-              alt=""
-              className="absolute top-0 right-[-12rem] md:right-0 max-w-none w-[70.0625rem] hidden dark:block pointer-events-none"
-              unoptimized
-            />
-            <dl className="relative flex flex-wrap h-14 overflow-hidden">
+          <div className="relative flex flex-col gap-6 px-4 py-6 mx-auto max-w-8xl sm:px-6 lg:px-8 sm:flex-row sm:items-center sm:justify-between">
+            <dl className="relative flex flex-wrap overflow-hidden h-14">
               {[
                 ...(meta.tech ? [{ name: 'Technologies', value: meta.tech }] : []),
                 {
@@ -259,7 +247,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
                   <dt className="text-[0.8125rem] leading-6 font-semibold text-slate-700 dark:text-slate-400">
                     {item.name}
                   </dt>
-                  <dd className="text-sm leading-6 mt-2 text-slate-700 dark:text-slate-200">
+                  <dd className="mt-2 text-sm leading-6 text-slate-700 dark:text-slate-200">
                     {item.value}
                   </dd>
                 </div>
@@ -284,7 +272,7 @@ export function ShowcaseLayout({ children, slug, meta }) {
           </MDXProvider>
         </div>
       </article>
-      <footer className="pt-20 sm:pt-32 text-center pb-16">
+      <footer className="pt-20 pb-16 text-center sm:pt-32">
         <Footer.Content />
       </footer>
     </>

@@ -17,41 +17,22 @@ const dateFormat = {
 
 function BackgroundBeams() {
   return (
-    <div className="pointer-events-none absolute inset-x-0 top-0 flex justify-center overflow-hidden">
-      <div className="flex w-[108rem] flex-none justify-end">
-        <picture>
-          <source srcSet={require('@/img/beams/docs@30.avif').default.src} type="image/avif" />
-          <img
-            src={require('@/img/beams/docs@tinypng.png').default.src}
-            alt=""
-            className="w-[71.75rem] max-w-none flex-none dark:hidden"
-            decoding="async"
-          />
-        </picture>
-        <picture>
-          <source srcSet={require('@/img/beams/docs-dark@30.avif').default.src} type="image/avif" />
-          <img
-            src={require('@/img/beams/docs-dark@tinypng.png').default.src}
-            alt=""
-            className="hidden w-[90rem] max-w-none flex-none dark:block"
-            decoding="async"
-          />
-        </picture>
-      </div>
+    <div className="absolute inset-x-0 top-0 flex justify-center overflow-hidden pointer-events-none">
+      <div className="flex w-[108rem] flex-none justify-end"></div>
     </div>
   )
 }
 
 function Header() {
   return (
-    <header className="mx-auto max-w-8xl px-4 lg:px-8">
+    <header className="px-4 mx-auto max-w-8xl lg:px-8">
       <div className="relative flex h-[60px] items-center justify-between text-sm font-semibold leading-6 text-slate-700 dark:text-slate-200">
         <Link href="/">
           <span className="sr-only">Tailwind CSS home page</span>
-          <Logo className="h-5 w-auto" />
+          <Logo className="w-auto h-5" />
         </Link>
         <div className="flex items-center">
-          <SearchButton className="-my-1 flex h-8 w-8 items-center justify-center text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 lg:hidden">
+          <SearchButton className="flex items-center justify-center w-8 h-8 -my-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 lg:hidden">
             <span className="sr-only">Search</span>
             <svg
               width="24"
@@ -67,21 +48,21 @@ function Header() {
               <circle cx="11" cy="11" r="6" />
             </svg>
           </SearchButton>
-          <NavPopover className="-my-1 ml-2" display="lg:hidden" />
-          <div className="hidden items-center lg:flex">
+          <NavPopover className="ml-2 -my-1" display="lg:hidden" />
+          <div className="items-center hidden lg:flex">
             <nav>
               <ul className="flex items-center gap-x-8">
                 <NavItems />
               </ul>
             </nav>
-            <div className="ml-6 flex items-center border-l border-slate-200 pl-6 dark:border-slate-800">
+            <div className="flex items-center pl-6 ml-6 border-l border-slate-200 dark:border-slate-800">
               <ThemeToggle />
               <a
                 href="https://github.com/tailwindlabs/tailwindcss"
-                className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+                className="block ml-6 text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
               >
                 <span className="sr-only">Tailwind CSS on GitHub</span>
-                <svg viewBox="0 0 16 16" className="h-5 w-5" fill="currentColor" aria-hidden="true">
+                <svg viewBox="0 0 16 16" className="w-5 h-5" fill="currentColor" aria-hidden="true">
                   <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
                 </svg>
               </a>
@@ -166,7 +147,7 @@ function LineExtensions({ body }) {
 
 function BottomGlow() {
   return (
-    <div className="absolute inset-x-0 -bottom-2 flex h-2 justify-center overflow-hidden">
+    <div className="absolute inset-x-0 flex justify-center h-2 overflow-hidden -bottom-2">
       <div className="-mt-px flex h-[2px] w-full max-w-sm">
         <div className="w-full flex-none blur-sm [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]" />
         <div className="-ml-[100%] w-full flex-none blur-[1px] [background-image:linear-gradient(90deg,rgba(56,189,248,0)_0%,#0EA5E9_32.29%,rgba(236,72,153,0.3)_67.19%,rgba(236,72,153,0)_100%)]" />
@@ -178,11 +159,10 @@ function BottomGlow() {
 export function JobPostingLayout({ children, meta }) {
   return (
     <>
-      <BackgroundBeams />
       <Header />
-      <div className="mx-auto max-w-4xl overflow-hidden sm:overflow-visible sm:px-8 xl:max-w-8xl xl:px-8">
+      <div className="max-w-4xl mx-auto overflow-hidden sm:overflow-visible sm:px-8 xl:max-w-8xl xl:px-8">
         <div className="mt-12 grid grid-cols-1 items-start border-slate-950/10 dark:border-white/10 sm:mt-16 sm:border-t xl:grid-cols-[34rem_minmax(0,1fr)]">
-          <div className="relative top-0 border-b border-slate-950/10 px-8 pb-12 pt-8 dark:border-white/10 sm:border-x sm:px-12 sm:py-16 xl:sticky xl:border-r-0">
+          <div className="relative top-0 px-8 pt-8 pb-12 border-b border-slate-950/10 dark:border-white/10 sm:border-x sm:px-12 sm:py-16 xl:sticky xl:border-r-0">
             <LineExtensions />
             <BottomGlow />
             <p className="text-sm font-semibold leading-6 text-sky-500 dark:text-sky-400">
@@ -191,7 +171,7 @@ export function JobPostingLayout({ children, meta }) {
             <h1 className="mt-2 text-[length:clamp(1rem,7vw,3.5rem)] font-semibold leading-none tracking-tighter text-black dark:text-white xl:text-6xl/none">
               {meta.title}
             </h1>
-            <dl className="mt-4 flex gap-8 text-sm/7 sm:mt-8">
+            <dl className="flex gap-8 mt-4 text-sm/7 sm:mt-8">
               <div className="flex items-center gap-2">
                 <LocationIcon />
                 <dt className="sr-only">Location</dt>
@@ -213,7 +193,7 @@ export function JobPostingLayout({ children, meta }) {
               <time dateTime={meta.dateCloses}>{formatDate(meta.dateCloses, dateFormat)}</time>
             </p>
           </div>
-          <div className="relative border-slate-950/10 px-8 pb-16 pt-12 dark:border-white/10 sm:mb-24 sm:border-x sm:border-b sm:px-12 sm:pt-16">
+          <div className="relative px-8 pt-12 pb-16 border-slate-950/10 dark:border-white/10 sm:mb-24 sm:border-x sm:border-b sm:px-12 sm:pt-16">
             <LineExtensions body />
             <div className="prose prose-slate leading-7 dark:prose-dark [--scroll-mt:2rem]">
               <MDXProvider components={mdxComponents}>{children}</MDXProvider>

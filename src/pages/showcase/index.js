@@ -1,9 +1,9 @@
-import { useRef } from 'react'
-import Link from 'next/link'
-import { showcase } from '@/showcase'
-import Image from 'next/image'
 import { Footer } from '@/components/Footer'
+import { showcase } from '@/showcase'
 import clsx from 'clsx'
+import Image from 'next/image'
+import Link from 'next/link'
+import { useRef } from 'react'
 
 function Site({ site, priority = false }) {
   let videoContainerRef = useRef()
@@ -26,7 +26,7 @@ function Site({ site, priority = false }) {
     videoContainerRef.current.style.opacity = 0
     videoContainerRef.current.style.transition = `opacity ${durationSeconds}s linear`
   }
-  
+
   function onEnded() {
     state.current = 'looping'
     hideVideo()
@@ -40,7 +40,7 @@ function Site({ site, priority = false }) {
 
   return (
     <li
-      className="group relative rounded-3xl bg-slate-50 p-6 dark:bg-slate-800/80 dark:highlight-white/5 hover:bg-slate-100 dark:hover:bg-slate-700/50"
+      className="relative p-6 group rounded-3xl bg-slate-50 dark:bg-slate-800/80 dark:highlight-white/5 hover:bg-slate-100 dark:hover:bg-slate-700/50"
       onMouseEnter={() => {
         if (state.current === 'idle') {
           state.current = 'playing'
@@ -51,8 +51,8 @@ function Site({ site, priority = false }) {
         }
       }}
       onMouseLeave={() => {
-         state.current = 'leaving'
-         hideVideo()
+        state.current = 'leaving'
+        hideVideo()
       }}
     >
       <div className="aspect-[672/494] relative rounded-md transform overflow-hidden shadow-[0_2px_8px_rgba(15,23,42,0.08)] bg-slate-200 dark:bg-slate-700">
@@ -67,7 +67,7 @@ function Site({ site, priority = false }) {
           <Image
             src={site.dark.thumbnail}
             alt=""
-            className="absolute inset-0 w-full h-full hidden dark:block"
+            className="absolute inset-0 hidden w-full h-full dark:block"
             priority={priority}
             unoptimized
           />
@@ -115,7 +115,7 @@ function Site({ site, priority = false }) {
         </div>
       </div>
       <div className="flex flex-wrap items-center mt-6">
-        <h2 className="text-sm leading-6 text-slate-900 dark:text-white font-semibold group-hover:text-sky-500 dark:group-hover:text-sky-400">
+        <h2 className="text-sm font-semibold leading-6 text-slate-900 dark:text-white group-hover:text-sky-500 dark:group-hover:text-sky-400">
           <Link href={`/showcase/${site.slug}`}>
             <span className="absolute inset-0 rounded-3xl" />
             {site.name}
@@ -130,7 +130,7 @@ function Site({ site, priority = false }) {
           </p>
         )}
         <svg
-          className="w-6 h-6 flex-none opacity-0 group-hover:opacity-100"
+          className="flex-none w-6 h-6 opacity-0 group-hover:opacity-100"
           viewBox="0 0 24 24"
           fill="none"
         >
@@ -153,23 +153,9 @@ function Site({ site, priority = false }) {
 export default function Showcase() {
   return (
     <>
-      <main className="mt-16 sm:mt-20 relative">
-        <Image
-          src={require('@/img/showcase/beams@75.jpg')}
-          alt=""
-          className="hidden dark:sm:hidden sm:block absolute top-[-6.25rem] left-1/2 max-w-none w-[67.8125rem] ml-[-46.875rem] pointer-events-none"
-          priority
-          unoptimized
-        />
-        <Image
-          src={require('@/img/showcase/beams-index-dark@75.jpg')}
-          alt=""
-          className="hidden dark:block absolute top-[-5rem] left-1/2 max-w-none w-[41.1875rem] ml-[-40rem] pointer-events-none"
-          priority
-          unoptimized
-        />
-        <div className="relative max-w-3xl px-4 sm:px-6 lg:px-8 mx-auto sm:text-center">
-          <h1 className="text-sm leading-6 font-semibold text-sky-500">Showcase</h1>
+      <main className="relative mt-16 sm:mt-20">
+        <div className="relative max-w-3xl px-4 mx-auto sm:px-6 lg:px-8 sm:text-center">
+          <h1 className="text-sm font-semibold leading-6 text-sky-500">Showcase</h1>
           <p className="mt-6 text-[2.5rem] leading-none sm:text-6xl tracking-tight font-bold text-slate-900 dark:text-white">
             You can build anything with Tailwind CSS.
           </p>
@@ -178,7 +164,7 @@ export default function Showcase() {
             definitely build the website for the spaceship —{' '}
             <Link
               href="/showcase/nasa"
-              className="font-semibold border-b border-sky-300 text-gray-900 hover:border-b-2 dark:text-white dark:border-sky-400"
+              className="font-semibold text-gray-900 border-b border-sky-300 hover:border-b-2 dark:text-white dark:border-sky-400"
             >
               NASA did
             </Link>

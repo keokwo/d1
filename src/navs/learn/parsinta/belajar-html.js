@@ -9,6 +9,6 @@ const pages = createPageList(
   '/learn/umum/parsinta/belajar-html'
 )
 
-export const documentationNav = {
+export const belajarHtml = {
   Customization: [pages['content-configuration']],
 }

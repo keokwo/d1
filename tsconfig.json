@@ -40,7 +40,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "src/pages/learn/index.js"  ],
   "exclude": [
     "node_modules"
   ]
